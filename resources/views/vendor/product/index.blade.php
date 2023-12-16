@@ -6,8 +6,8 @@
 
 @section('content')
     <!--=============================
-                            DASHBOARD START
-                          ==============================-->
+                                        DASHBOARD START
+                                      ==============================-->
     <section id="wsus__dashboard">
         <div class="container-fluid">
 
@@ -69,13 +69,13 @@
                                                             {{ $product->childCategory->name }}
                                                         @endif
                                                     </td>
-                                                    <td>{{ number_format($product->price, 0, '.', '.') . 'đ' }} </td>
-
+                                                    <td>{{ number_format($product->price, 0, '.', '.') }}{{ $settings->currency_icon }}
+                                                    </td>
 
                                                     <td>
                                                         @if ($product->offer_price == null)
                                                         @else
-                                                            {{ number_format($product->offer_price, 0, '.', '.') . 'đ' }}
+                                                            {{ number_format($product->offer_price, 0, '.', '.') }}{{ $settings->currency_icon }}
                                                         @endif
                                                     </td>
 
@@ -153,8 +153,8 @@
         </div>
     </section>
     <!--=============================
-                            DASHBOARD START
-                          ==============================-->
+                                        DASHBOARD START
+                                      ==============================-->
 @endsection
 
 @push('scripts')

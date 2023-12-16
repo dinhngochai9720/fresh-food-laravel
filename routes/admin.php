@@ -10,8 +10,6 @@ use App\Http\Controllers\Backend\Admin\EmailConfigSettingController;
 use App\Http\Controllers\Backend\Admin\FlashSaleController;
 use App\Http\Controllers\Backend\Admin\FooterCompanyController;
 use App\Http\Controllers\Backend\Admin\FooterCustomerController;
-use App\Http\Controllers\Backend\Admin\FooterInfoController;
-use App\Http\Controllers\Backend\Admin\FooterSocialController;
 use App\Http\Controllers\Backend\Admin\GeneralSettingController;
 use App\Http\Controllers\Backend\Admin\HomePageSettingController;
 use App\Http\Controllers\Backend\Admin\OrderController;
@@ -32,6 +30,7 @@ use App\Http\Controllers\Backend\Admin\TransactionController;
 use App\Http\Controllers\Backend\Admin\VendorController;
 use App\Http\Controllers\Backend\Admin\VNPaySettingController;
 use App\Http\Controllers\Backend\Admin\VoucherController;
+use App\Http\Controllers\Backend\Admin\WithdrawController;
 use Illuminate\Support\Facades\Route;
 
 // Admin Routes
@@ -243,4 +242,18 @@ Route::controller(AccountController::class)->group(function () {
     Route::post('account-admin/store', 'storeAccountAdmin')->name('account-admin.store');
     Route::delete('account-admin/destroy/{id}', 'destroyAccountAdmin')->name('account-admin.destroy');
     Route::put('account-admin/change-status', 'changeStatusAccountAdmin')->name('account-admin.change-status');
+});
+
+// WithDrawMethod Routes
+Route::controller(WithdrawController::class)->group(function () {
+    Route::get('withdraw-method/index', 'getWithdrawMethod')->name('withdraw-method.index');
+    Route::get('withdraw-method/create', 'createWithdrawMethod')->name('withdraw-method.create');
+    Route::post('withdraw-method/store', 'storeWithdrawMethod')->name('withdraw-method.store');
+    Route::get('withdraw-method/edit/{id}', 'editWithdrawMethod')->name('withdraw-method.edit');
+    Route::put('withdraw-method/update/{id}', 'updateWithdrawMethod')->name('withdraw-method.update');
+    Route::delete('withdraw-method/destroy/{id}', 'destroyWithdrawMethod')->name('withdraw-method.destroy');
+
+    Route::get('withdraw-request/index', 'getWithdrawRequest')->name('withdraw-request.index');
+    Route::get('withdraw-request/detail/{id}', 'showDetailWithdrawRequest')->name('withdraw-request.detail');
+    Route::put('withdraw-request/update/{id}', 'updateWithdrawRequest')->name('withdraw-request.update');
 });

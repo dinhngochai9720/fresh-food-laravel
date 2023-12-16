@@ -14,7 +14,7 @@
                     class="far fa-user"></i> Tài khoản</a>
         </li>
 
-        <li><a class="{{ setActive(['vendor.shop-profile.index']) }}" href="{{ route('vendor.shop-profile.index') }}"><i
+        <li><a class="{{ setActive(['vendor.shop-profile.*']) }}" href="{{ route('vendor.shop-profile.index') }}"><i
                     class="fa-solid fa-shop"></i> Cửa hàng</a></li>
 
         <li><a class="{{ setActive([
@@ -31,9 +31,14 @@
                 hàng</a>
         </li>
 
-        <li><a class="{{ setActive(['vendor.product-review.index']) }}"
+        <li><a class="{{ setActive(['vendor.product-review.*']) }}"
                 href="{{ route('vendor.product-review.index') }}"><i class="fa-regular fa-star"></i>
                 Đánh giá của khách hàng</a>
+        </li>
+
+        <li><a class="{{ setActive(['vendor.withdraw.*']) }}" href="{{ route('vendor.withdraw.index') }}"><i
+                    class="fa-solid fa-building-columns"></i>
+                Yêu cầu rút tiền</a>
         </li>
 
 

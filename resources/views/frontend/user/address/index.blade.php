@@ -34,13 +34,13 @@
                                             <div class="wsus__dash_add_single">
                                                 <h4>Địa chỉ {{ $key + 1 }} </h4>
                                                 <ul>
-                                                    <li><span>Tên :</span> {{ $address->name }}</li>
-                                                    <li><span>Email :</span> {{ $address->email }}</li>
-                                                    <li><span>Điện thoại :</span>{{ $address->phone }}</li>
-                                                    <li><span>Tỉnh/thành phố :</span> {{ $address->city }}</li>
-                                                    <li><span>Quận/huyện :</span> {{ $address->district }}</li>
-                                                    <li><span>Xã/phường :</span> {{ $address->ward }}</li>
-                                                    <li><span>Địa chỉ :</span> {{ $address->address }}</li>
+                                                    <li><span>Tên:</span> {{ $address->name }}</li>
+                                                    <li><span>Email:</span> {{ $address->email }}</li>
+                                                    <li><span>Điện thoại:</span>{{ $address->phone }}</li>
+                                                    <li><span>Tỉnh/thành phố:</span> {{ $address->city }}</li>
+                                                    <li><span>Quận/huyện:</span> {{ $address->district }}</li>
+                                                    <li><span>Xã/phường:</span> {{ $address->ward }}</li>
+                                                    <li><span>Địa chỉ:</span> {{ $address->address }}</li>
                                                 </ul>
                                                 <div class="wsus__address_btn">
                                                     <a href="{{ route('user.address.edit', $address->id) }}"

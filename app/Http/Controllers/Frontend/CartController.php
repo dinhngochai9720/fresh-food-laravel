@@ -244,49 +244,52 @@ class CartController extends Controller
                     }
                 }
             }
+
+
+            $voucher = Voucher::where(['code' => $request->voucher_code, 'status' => 1])->first();
+
+            if ($request->voucher_code == null) {
+                return response(['status' => 'warning', 'message' => 'Vui lòng nhập mã giảm giá!']);
+            }
+
+            if ($voucher == null) {
+                return response(['status' => 'error', 'message' => 'Mã giảm giá không tồn tại!']);
+            } elseif (date('Y-m-d') < $voucher->start_date) {
+                return response(['status' => 'error', 'message' => 'Mã giảm giá không tồn tại!']);
+            } elseif (date('Y-m-d') > $voucher->end_date) {
+                return response(['status' => 'error', 'message' => 'Mã giảm giá đã hết hạn!']);
+            } elseif ($voucher->quantity <= 0) {
+                return response(['status' => 'error', 'message' => 'Mã giảm giá đã hết!']);
+            }
+
+            if ($voucher->voucher_type == 'amount') {
+                Session::put(
+                    'voucher',
+                    [
+                        'voucher_id' => $voucher->id,
+                        'voucher_name' => $voucher->name,
+                        'voucher_code' => $voucher->code,
+                        'voucher_type' => 'amount',
+                        'voucher_discount' => $voucher->discount,
+                    ]
+                );
+            } elseif ($voucher->voucher_type == 'percent') {
+                Session::put(
+                    'voucher',
+                    [
+                        'voucher_id' => $voucher->id,
+                        'voucher_name' => $voucher->name,
+                        'voucher_code' => $voucher->code,
+                        'voucher_type' => 'percent',
+                        'voucher_discount' => $voucher->discount,
+                    ]
+                );
+            }
+
+            return response(['status' => 'success', 'message' => 'Áp dụng mã giảm giá thành công!']);
+        } else {
+            return response(['status' => 'error', 'message' => 'Vui lòng đăng nhập để được sử dụng voucher!']);
         }
-
-        $voucher = Voucher::where(['code' => $request->voucher_code, 'status' => 1])->first();
-
-        if ($request->voucher_code == null) {
-            return response(['status' => 'warning', 'message' => 'Vui lòng nhập mã giảm giá!']);
-        }
-
-        if ($voucher == null) {
-            return response(['status' => 'error', 'message' => 'Mã giảm giá không tồn tại!']);
-        } elseif (date('Y-m-d') < $voucher->start_date) {
-            return response(['status' => 'error', 'message' => 'Mã giảm giá không tồn tại!']);
-        } elseif (date('Y-m-d') > $voucher->end_date) {
-            return response(['status' => 'error', 'message' => 'Mã giảm giá đã hết hạn!']);
-        } elseif ($voucher->quantity <= 0) {
-            return response(['status' => 'error', 'message' => 'Mã giảm giá đã hết!']);
-        }
-
-        if ($voucher->voucher_type == 'amount') {
-            Session::put(
-                'voucher',
-                [
-                    'voucher_id' => $voucher->id,
-                    'voucher_name' => $voucher->name,
-                    'voucher_code' => $voucher->code,
-                    'voucher_type' => 'amount',
-                    'voucher_discount' => $voucher->discount,
-                ]
-            );
-        } elseif ($voucher->voucher_type == 'percent') {
-            Session::put(
-                'voucher',
-                [
-                    'voucher_id' => $voucher->id,
-                    'voucher_name' => $voucher->name,
-                    'voucher_code' => $voucher->code,
-                    'voucher_type' => 'percent',
-                    'voucher_discount' => $voucher->discount,
-                ]
-            );
-        }
-
-        return response(['status' => 'success', 'message' => 'Áp dụng mã giảm giá thành công!']);
     }
 
     public function deleteVoucher()

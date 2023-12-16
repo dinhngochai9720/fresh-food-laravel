@@ -68,9 +68,9 @@ class ProductController extends Controller
                 'category_id.required' => 'Vui lòng chọn danh mục.',
                 'brand_id.required' => 'Vui lòng chọn thương hiệu.',
                 'price.required' => 'Vui lòng nhập giá.',
-                'price.min' => 'Vui lòng nhập giá > 0.',
-                'offer_price.min' => 'Vui lòng nhập giá ưu đãi > 0.',
-                'quantity.min' => 'Vui lòng nhập số lượng > 0.',
+                'price.min' => 'Vui lòng nhập giá >= 0.',
+                'offer_price.min' => 'Vui lòng nhập giá ưu đãi >= 0.',
+                'quantity.min' => 'Vui lòng nhập số lượng >= 0.',
                 'quantity.required' => 'Vui lòng nhập số lượng.',
                 'short_description.required' => 'Vui lòng nhập mô tả ngắn.',
                 'short_description.max' => 'Nhập tối đa 1024 ký tự.',
@@ -131,12 +131,15 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::where('vendor_id', Auth::user()->vendor->id)->findOrFail($id);
 
         // check product is not vendor created -> do no access
-        if ($product->vendor_id !== Auth::user()->vendor->id) {
-            abort(404);
-        }
+        // $product = Product::findOrFail($id);
+        // if ($product->vendor_id !== Auth::user()->vendor->id) {
+        //     abort(404);
+        // }
+
+
         $categories = Category::all();
         $sub_categories = SubCategory::where('category_id', $product->category_id)->get();
         $child_categories = ChildCategory::where('sub_category_id', $product->sub_category_id)->get();
@@ -174,9 +177,9 @@ class ProductController extends Controller
                 'category_id.required' => 'Vui lòng chọn danh mục.',
                 'brand_id.required' => 'Vui lòng chọn thương hiệu.',
                 'price.required' => 'Vui lòng nhập giá.',
-                'price.min' => 'Vui lòng nhập giá > 0.',
-                'offer_price.min' => 'Vui lòng nhập giá ưu đãi > 0.',
-                'quantity.min' => 'Vui lòng nhập số lượng > 0.',
+                'price.min' => 'Vui lòng nhập giá >= 0.',
+                'offer_price.min' => 'Vui lòng nhập giá ưu đãi >= 0.',
+                'quantity.min' => 'Vui lòng nhập số lượng >= 0.',
                 'quantity.required' => 'Vui lòng nhập số lượng.',
                 'short_description.required' => 'Vui lòng nhập mô tả ngắn.',
                 'short_description.max' => 'Nhập tối đa 1024 ký tự.',
@@ -189,12 +192,13 @@ class ProductController extends Controller
             ]
         );
 
-        $product = Product::findOrFail($id);
+        $product = Product::where('vendor_id', Auth::user()->vendor->id)->findOrFail($id);
 
+        // $product = Product::findOrFail($id);
         // product is not vendor created -> do no update
-        if ($product->vendor_id !== Auth::user()->vendor->id) {
-            abort(404);
-        }
+        // if ($product->vendor_id !== Auth::user()->vendor->id) {
+        //     abort(404);
+        // }
 
         // Handle file image upload
         $image_path = $this->updateImage($request, 'thumbnail_image', 'uploads/product', 306, 290, $product->thumbnail_image);
@@ -232,13 +236,15 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        $product = Product::findOrFail($id);
-        $multi_images_product = ProductMultiImage::where('product_id', $product->id)->get();
+        $product = Product::where('vendor_id', Auth::user()->vendor->id)->findOrFail($id);
 
+        // $product = Product::findOrFail($id);
         // product is not vendor created -> do not destroy
-        if ($product->vendor_id !== Auth::user()->vendor->id) {
-            abort(404);
-        }
+        // if ($product->vendor_id !== Auth::user()->vendor->id) {
+        //     abort(404);
+        // }
+
+        $multi_images_product = ProductMultiImage::where('product_id', $product->id)->get();
 
         // delete main image in public/uploads/product folder
         $this->deleteImage($product->thumbnail_image);

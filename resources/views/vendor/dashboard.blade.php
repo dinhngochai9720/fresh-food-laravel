@@ -72,18 +72,15 @@
 
                                 @php
                                     $total_invoice_today = 0;
-                                @endphp
-                                @foreach ($orders_delivered_today as $order)
-                                    @foreach ($order->orderDetail as $key => $product)
-                                        @if ($product->vendor_id == Auth::user()->vendor->id)
-                                            @php
+                                    foreach ($orders_delivered_today as $key => $order) {
+                                        foreach ($order->orderDetail as $key => $product) {
+                                            if ($product->vendor_id == Auth::user()->vendor->id) {
                                                 $product_price = $product->product_price + $product->variant_total_price;
                                                 $total_invoice_today += $product_price * $product->product_qty;
-                                            @endphp
-                                        @else
-                                        @endif
-                                    @endforeach
-                                @endforeach
+                                            }
+                                        }
+                                    }
+                                @endphp
                                 <div class="col-xl-2 col-6 col-md-4">
                                     <a class="wsus__dashboard_item green" href="javascript:;">
                                         <i class="fa-solid fa-money-bill-1"></i>
@@ -97,18 +94,15 @@
                                 @php
                                     $total_invoice_month = 0;
                                     $month = Carbon\Carbon::now()->format('m-Y');
-                                @endphp
-                                @foreach ($orders_delivered_month as $order)
-                                    @foreach ($order->orderDetail as $key => $product)
-                                        @if ($product->vendor_id == Auth::user()->vendor->id)
-                                            @php
+                                    foreach ($orders_delivered_month as $key => $order) {
+                                        foreach ($order->orderDetail as $key => $product) {
+                                            if ($product->vendor_id == Auth::user()->vendor->id) {
                                                 $product_price = $product->product_price + $product->variant_total_price;
                                                 $total_invoice_month += $product_price * $product->product_qty;
-                                            @endphp
-                                        @else
-                                        @endif
-                                    @endforeach
-                                @endforeach
+                                            }
+                                        }
+                                    }
+                                @endphp
                                 <div class="col-xl-2 col-6 col-md-4">
                                     <a class="wsus__dashboard_item green" href="javascript:;">
                                         <i class="fa-solid fa-money-bill-1"></i>
@@ -123,18 +117,15 @@
                                 @php
                                     $total_invoice_year = 0;
                                     $year = Carbon\Carbon::now()->format('Y');
-                                @endphp
-                                @foreach ($orders_delivered_year as $order)
-                                    @foreach ($order->orderDetail as $key => $product)
-                                        @if ($product->vendor_id == Auth::user()->vendor->id)
-                                            @php
+                                    foreach ($orders_delivered_year as $key => $order) {
+                                        foreach ($order->orderDetail as $key => $product) {
+                                            if ($product->vendor_id == Auth::user()->vendor->id) {
                                                 $product_price = $product->product_price + $product->variant_total_price;
                                                 $total_invoice_year += $product_price * $product->product_qty;
-                                            @endphp
-                                        @else
-                                        @endif
-                                    @endforeach
-                                @endforeach
+                                            }
+                                        }
+                                    }
+                                @endphp
                                 <div class="col-xl-2 col-6 col-md-4">
                                     <a class="wsus__dashboard_item green" href="javascript:;">
                                         <i class="fa-solid fa-money-bill-1"></i>
@@ -147,18 +138,15 @@
 
                                 @php
                                     $total_invoice = 0;
-                                @endphp
-                                @foreach ($orders_delivered as $order)
-                                    @foreach ($order->orderDetail as $key => $product)
-                                        @if ($product->vendor_id == Auth::user()->vendor->id)
-                                            @php
+                                    foreach ($orders_delivered as $key => $order) {
+                                        foreach ($order->orderDetail as $key => $product) {
+                                            if ($product->vendor_id == Auth::user()->vendor->id) {
                                                 $product_price = $product->product_price + $product->variant_total_price;
                                                 $total_invoice += $product_price * $product->product_qty;
-                                            @endphp
-                                        @else
-                                        @endif
-                                    @endforeach
-                                @endforeach
+                                            }
+                                        }
+                                    }
+                                @endphp
                                 <div class="col-xl-2 col-6 col-md-4">
                                     <a class="wsus__dashboard_item green" href="javascript:;">
                                         <i class="fa-solid fa-money-bill-1"></i>
@@ -168,26 +156,6 @@
                                         </p>
                                     </a>
                                 </div>
-
-
-                                {{-- <div class="col-xl-2 col-6 col-md-4">
-                                    <a class="wsus__dashboard_item blue" href="dsahboard_wishlist.html">
-                                        <i class="far fa-heart"></i>
-                                        <p>wishlist</p>
-                                    </a>
-                                </div>
-                                <div class="col-xl-2 col-6 col-md-4">
-                                    <a class="wsus__dashboard_item orange" href="dsahboard_profile.html">
-                                        <i class="fas fa-user-shield"></i>
-                                        <p>profile</p>
-                                    </a>
-                                </div>
-                                <div class="col-xl-2 col-6 col-md-4">
-                                    <a class="wsus__dashboard_item purple" href="dsahboard_address.html">
-                                        <i class="fal fa-map-marker-alt"></i>
-                                        <p>address</p>
-                                    </a>
-                                </div> --}}
                             </div>
                         </div>
                     </div>

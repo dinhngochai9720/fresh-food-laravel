@@ -92,7 +92,7 @@ class ProductController extends Controller
                 'category_id.required' => 'Vui lòng chọn danh mục.',
                 'brand_id.required' => 'Vui lòng chọn thương hiệu.',
                 'price.required' => 'Vui lòng nhập giá.',
-                'price.min' => 'Vui lòng nhập giá > 0.',
+                'price.min' => 'Vui lòng nhập giá >= 0.',
                 'offer_price.min' => 'Vui lòng nhập giá ưu đãi >= 0.',
                 'offer_price.lt' => 'Vui lòng nhập giá ưu đãi < giá ban đầu.',
                 'quantity.required' => 'Vui lòng nhập số lượng.',

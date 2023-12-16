@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Vendor\ProductReviewController;
 use App\Http\Controllers\Backend\Vendor\ProductVariantController;
 use App\Http\Controllers\Backend\Vendor\ProductVariantItemController;
 use App\Http\Controllers\Backend\Vendor\ShopProfileController;
+use App\Http\Controllers\Backend\Vendor\WithdrawController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -52,4 +53,15 @@ Route::controller(OrderController::class)->group(function () {
 // Product Review Routes
 Route::controller(ProductReviewController::class)->group(function () {
     Route::get('product-review/index', 'index')->name('product-review.index');
+});
+
+
+// Withdraw Routes
+Route::controller(WithdrawController::class)->group(function () {
+    Route::get('withdraw/index', 'index')->name('withdraw.index');
+    Route::get('withdraw/create', 'create')->name('withdraw.create');
+    Route::post('withdraw/store', 'store')->name('withdraw.store');
+    Route::get('withdraw/detail/{id}', 'showDetailWithdrawRequest')->name('withdraw.detail');
+
+    Route::get('withdraw-method-desc/{id}', 'withdrawMethodDescription')->name('withdraw-method-desc');
 });

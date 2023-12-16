@@ -23,7 +23,6 @@ use App\Http\Controllers\Frontend\User\VNPayController;
 use App\Http\Controllers\Frontend\User\WishlistController;
 use App\Http\Controllers\Frontend\User\ZaloPayController;
 use App\Http\Controllers\Frontend\VendorController;
-// use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,11 +36,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
 
 require __DIR__ . '/auth.php';
 
@@ -56,8 +50,6 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('product-detail/{slug}/{id}', 'showProductDetail')->name('product-detail');
     Route::get('products/view', 'viewProducts')->name('products.view');
 });
-
-
 
 
 // Google Login User Routes

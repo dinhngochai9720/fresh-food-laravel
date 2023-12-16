@@ -79,7 +79,7 @@
                             'admin.product-variant.*',
                             'admin.product-variant-item.*',
                         ]) }}">
-                        <a class="nav-link" href="{{ route('admin.product.index') }}">Sản phẩm</a>
+                        <a class="nav-link" href="{{ route('admin.product.index') }}">Sản phẩm chấp thuận</a>
                     </li>
 
                     <li class="{{ setActive(['admin.product-pending.*']) }}">
@@ -152,6 +152,18 @@
                 </ul>
             </li>
 
+            <li class="dropdown {{ setActive(['admin.withdraw-method.*', 'admin.withdraw-request.*']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"> <i
+                        class="fa-solid fa-building-columns"></i>
+                    <span>Quản lý thanh toán</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ setActive(['admin.withdraw-method.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.withdraw-method.index') }}">Phương thức rút tiền</a></li>
+                    <li class="{{ setActive(['admin.withdraw-request.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.withdraw-request.index') }}">Yêu cầu rút tiền</a></li>
+                </ul>
+            </li>
+
 
             <li class="{{ setActive(['admin.voucher.*']) }}">
                 <a class="nav-link" href="{{ route('admin.voucher.index') }}">
@@ -198,6 +210,8 @@
                     <i class="fas fa-envelope"></i>
                     <span>Quản lý email đăng ký</span></a>
             </li>
+
+
 
 
             <li class="menu-header">Cài đặt</li>

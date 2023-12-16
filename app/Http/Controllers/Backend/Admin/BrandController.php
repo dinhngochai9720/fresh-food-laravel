@@ -106,8 +106,6 @@ class BrandController extends Controller
             ]
         );
 
-
-
         $brand = Brand::findOrFail($id);
 
         // Handle file image upload
