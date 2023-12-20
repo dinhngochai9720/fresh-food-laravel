@@ -52,8 +52,6 @@
             <div class="col-xl-12">
                 <div class="wsus__section_header">
                     <h3>{{ $category->name }}</h3>
-                    <a class="see_btn" href="{{ route('products.view', ['category' => $category->slug]) }}">Xem thêm <i
-                            class="fas fa-caret-right"></i></a>
                 </div>
             </div>
         </div>
@@ -117,9 +115,12 @@
                             <li><a href="#" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal-{{ $product->id }}"><i class="far fa-eye"></i></a>
                             </li>
+
+
                             <li><a href="" class="add-product-to-wishlist" data-id="{{ $product->id }}"><i
-                                        class="far fa-heart"></i></a></li>
-                            {{-- <li><a href="#"><i class="far fa-random"></i></a> --}}
+                                        class="far fa-heart"></i></a>
+                            </li>
+
                         </ul>
                         <div class="wsus__product_details">
                             <a class="wsus__category" href="#">{{ $product->category->name }} </a>

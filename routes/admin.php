@@ -21,6 +21,7 @@ use App\Http\Controllers\Backend\Admin\ProductReviewController;
 use App\Http\Controllers\Backend\Admin\ProductVariantController;
 use App\Http\Controllers\Backend\Admin\ProductVariantItemController;
 use App\Http\Controllers\Backend\Admin\ProfileController;
+use App\Http\Controllers\Backend\Admin\PusherSettingController;
 use App\Http\Controllers\Backend\Admin\ShippingController;
 use App\Http\Controllers\Backend\Admin\SliderController;
 use App\Http\Controllers\Backend\Admin\SubCategoryController;
@@ -169,6 +170,11 @@ Route::controller(VNPaySettingController::class)->group(function () {
 // Email Config Setting Routes
 Route::controller(EmailConfigSettingController::class)->group(function () {
     Route::put('email-config-setting/update/{id}', 'update')->name('email-config-setting.update');
+});
+
+// Pusher Setting Routes
+Route::controller(PusherSettingController::class)->group(function () {
+    Route::put('pusher-setting/update/{id}', 'update')->name('pusher-setting.update');
 });
 
 

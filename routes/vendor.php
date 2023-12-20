@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\Vendor\DashboardController;
+use App\Http\Controllers\Backend\Vendor\MessageController;
 use App\Http\Controllers\Backend\Vendor\OrderController;
 use App\Http\Controllers\Backend\Vendor\ProductController;
 use App\Http\Controllers\Backend\Vendor\ProductMultiImageController;
@@ -15,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 // Vendor Routes
 Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
+// Message Routes
+Route::controller(MessageController::class)->group(function () {
+    Route::get('message/index', 'index')->name('message.index');
+    Route::get('get-message', 'getMessage')->name('get-message');
+    Route::post('send-message', 'sendMessage')->name('send-message');
+});
 
 // Shop Profile Routes
 Route::resource('shop-profile', ShopProfileController::class);

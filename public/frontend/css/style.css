@@ -3790,8 +3790,8 @@ PRODUCT DETAILS START
     color: #fff !important;
 }
 
-.wsus__button_area li:nth-child(3) a,
-.wsus__button_area li:nth-child(4) a {
+.wsus__button_area li:nth-child(2) a,
+.wsus__button_area li:nth-child(3) a {
     border: 1px solid #ddd;
     margin-left: 10px;
     width: 40px;
@@ -3807,8 +3807,8 @@ PRODUCT DETAILS START
     -o-transition: all linear 0.3s ease;
 }
 
-.wsus__button_area li:nth-child(3) a:hover,
-.wsus__button_area li:nth-child(4) a:hover {
+.wsus__button_area li:nth-child(2) a:hover,
+.wsus__button_area li:nth-child(3) a:hover {
     color: #fff;
     border-color: #3bb77e;
     background: #3bb77e;
@@ -9165,7 +9165,8 @@ DASHBOARD CHAT START
 }
 
 .wsus__chatlist .nav-pills .nav-link.active {
-    background-color: #eeeeeeb3;
+    /* background-color: #eeeeeeb3; */
+    background-color: #fff;
 }
 
 .wsus__chatlist .wsus_chat_list_img {
@@ -9547,6 +9548,10 @@ a:not([href]):not([class]):hover {
 .cart-pro-qty .cart-pro-qty-input {
     margin: 0 5px;
     width: 45px;
+}
+
+.msg-notification {
+    border: 5px solid #dc3545 !important;
 }
 
 @media (max-width: 1024px) {

@@ -45,6 +45,21 @@
 
     {{-- Toast Notification JS  --}}
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    <script>
+        const USER = {
+            id: "{{ auth()->user()->id }}",
+            name: "{{ auth()->user()->name }}",
+            image: "{{ asset(auth()->user()->image) }}"
+        };
+
+        const PUSHER = {
+            key: "{{ $pusher_setting->key }}",
+            cluster: "{{ $pusher_setting->cluster }}"
+        }
+    </script>
+
+    @vite(['resources/js/app.js', 'resources/js/user.js'])
 </head>
 
 <body>

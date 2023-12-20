@@ -30,12 +30,6 @@
                         <i class="far fa-bars"></i>
                     </div>
                     <ul class="wsus_menu_cat_item show_home toggle_menu">
-                        {{-- <li><a href="#"><img
-                                    style="max-width: 20px;
-                                        margin-right: 15px;"
-                                    src="{{ asset('frontend/images/test.svg') }}" alt=""> hot
-                                promotions</a></li> --}}
-
                         @foreach ($categories as $category)
                             <li><a class="{{ count($category->subCategories) > 0 ? 'wsus__droap_arrow' : '' }}"
                                     href="{{ route('products.view', ['category' => $category->slug]) }}"> <img
@@ -69,7 +63,6 @@
                                 @endif
                             </li>
                         @endforeach
-                        {{-- <li><a href="#"><i class="fal fa-gem"></i> View All Categories</a></li> --}}
                     </ul>
 
                     <ul class="wsus__menu_item">
@@ -83,25 +76,26 @@
 
                     </ul>
                     <ul class="wsus__menu_item wsus__menu_item_right">
-                        @if (Auth::check())
-                            <li><a class="{{ setActive(['user.track-order.index']) }}"
-                                    href="{{ route('user.track-order.index') }}">Theo
-                                    dõi đơn hàng</a></li>
-                        @else
-                        @endif
+
+
                         <li><a class="{{ setActive(['cart.cart-detail']) }}"
                                 href="{{ route('cart.cart-detail') }}">Giỏ hàng</a>
                         </li>
 
                         @if (Auth::check())
-                            <li><a
-                                    href="
-                                @if (Auth::user()->role == 'user') {{ route('user.dashboard') }}
-                                @elseif(Auth::user()->role == 'vendor')
-                                {{ route('vendor.dashboard') }} 
-                                @elseif (Auth::user()->role == 'admin') 
-                                {{ route('admin.dashboard') }} @endif
-                               ">{{ Auth::user()->name }}</a>
+                            <li><a class="{{ setActive(['user.track-order.index']) }}"
+                                    href="{{ route('user.track-order.index') }}">Theo
+                                    dõi đơn hàng</a></li>
+
+                            <li>
+                                @if (Auth::user()->role == 'user')
+                                    <a href="{{ route('user.dashboard') }}">{{ Auth::user()->name }}</a>
+                                @elseif (Auth::user()->role == 'vendor')
+                                    <a
+                                        href="{{ route('vendor.dashboard') }}">{{ Auth::user()->vendor->shop_name }}</a>
+                                @elseif (Auth::user()->role == 'admin')
+                                    <a href="{{ route('admin.dashboard') }}">{{ Auth::user()->name }}</a>
+                                @endif
                             </li>
                         @else
                             <li><a href="{{ route('login') }}">Đăng nhập</a></li>
@@ -118,16 +112,14 @@
 <section id="wsus__mobile_menu">
     <span class="wsus__mobile_menu_close"><i class="fal fa-times"></i></span>
     <ul class="wsus__mobile_menu_header_icon d-inline-flex">
-
         <li><a href="{{ route('user.wishlist') }}"><i class="fal fa-heart"></i><span class="total-product-wishlist">
                     @if (Auth::check())
                         {{ \App\Models\Wishlist::where('user_id', Auth::user()->id)->count() }}
                     @else
                         0
                     @endif
-                </span></a></li>
-
-        {{-- <li><a href="compare.html"><i class="far fa-random"></i> </i><span>3</span></a></li> --}}
+                </span></a>
+        </li>
     </ul>
 
     <form action="{{ route('products.view') }}" method="GET">
@@ -188,14 +180,15 @@
                 <div class="accordion accordion-flush" id="accordionFlushExample2">
                     <ul>
                         @if (Auth::check())
-                            <li><a
-                                    href="
-                                @if (Auth::user()->role == 'user') {{ route('user.dashboard') }}
-                                @elseif(Auth::user()->role == 'vendor')
-                                {{ route('vendor.dashboard') }} 
-                                @elseif (Auth::user()->role == 'admin') 
-                                {{ route('admin.dashboard') }} @endif
-                               ">{{ Auth::user()->name }}</a>
+                            <li>
+                                @if (Auth::user()->role == 'user')
+                                    <a href="{{ route('user.dashboard') }}">{{ Auth::user()->name }}</a>
+                                @elseif (Auth::user()->role == 'vendor')
+                                    <a
+                                        href="{{ route('vendor.dashboard') }}">{{ Auth::user()->vendor->shop_name }}</a>
+                                @elseif (Auth::user()->role == 'admin')
+                                    <a href="{{ route('admin.dashboard') }}">{{ Auth::user()->name }}</a>
+                                @endif
                             </li>
 
                             <li><a href="{{ route('user.track-order.index') }}">Theo dõi đơn hàng</a></li>
@@ -203,9 +196,9 @@
                             <li><a href="{{ route('login') }}">Đăng nhập</a></li>
                         @endif
 
+                        <li><a href="{{ route('cart.cart-detail') }}">Giỏ hàng</a></li>
                         <li><a href="{{ route('flash-sale') }}">Flash Sale</a></li>
                         <li><a href="{{ route('vendors') }}">Nhà cung cấp</a></li>
-                        <li><a href="{{ route('cart.cart-detail') }}">Giỏ hàng</a></li>
                     </ul>
                 </div>
             </div>

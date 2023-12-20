@@ -14,6 +14,10 @@
                     class="far fa-user"></i> Tài khoản</a>
         </li>
 
+        <li><a class="{{ setActive(['vendor.message.*']) }}" href="{{ route('vendor.message.index') }}">
+                <i class="fa-solid fa-message"></i> Chat</a>
+        </li>
+
         <li><a class="{{ setActive(['vendor.shop-profile.*']) }}" href="{{ route('vendor.shop-profile.index') }}"><i
                     class="fa-solid fa-shop"></i> Cửa hàng</a></li>
 

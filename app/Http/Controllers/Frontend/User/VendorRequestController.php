@@ -42,11 +42,11 @@ class VendorRequestController extends Controller
         );
 
 
-        $info_exist_vendor = Vendor::where('user_id', Auth::user()->id)->first();
-        if ($info_exist_vendor) {
-            toastr()->warning('Tài khoản đã đăng ký thông tin! Vui lòng chờ phê duyệt', ' ');
-            return redirect()->back();
-        }
+        // $info_exist_vendor = Vendor::where('user_id', Auth::user()->id)->first();
+        // if ($info_exist_vendor) {
+        //     toastr()->warning('Tài khoản đã đăng ký thông tin! Vui lòng chờ phê duyệt', ' ');
+        //     return redirect()->back();
+        // }
 
         $vendor = new Vendor();
         // Handle file image upload

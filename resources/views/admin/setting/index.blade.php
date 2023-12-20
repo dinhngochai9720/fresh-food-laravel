@@ -28,6 +28,8 @@
                                              data-toggle="list" href="#vnpay-setting" role="tab">VNPay</a>
                                          <a class="list-group-item list-group-item-action" id="email-configs"
                                              data-toggle="list" href="#email-config" role="tab">Mailtrap</a>
+                                         <a class="list-group-item list-group-item-action" id="pusher-settings"
+                                             data-toggle="list" href="#pusher-setting" role="tab">Pusher</a>
                                      </div>
                                  </div>
                                  <div class="col-10">
@@ -37,6 +39,7 @@
                                          @include('admin.setting.payment.stripe-setting')
                                          @include('admin.setting.payment.vnpay-setting')
                                          @include('admin.setting.email-config')
+                                         @include('admin.setting.pusher-setting')
                                      </div>
                                  </div>
                              </div>

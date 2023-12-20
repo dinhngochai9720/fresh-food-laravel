@@ -691,12 +691,14 @@
                     } else if (data.status == 'error') {
                         toastr.error(data.message)
                     }
-                    // else if (data.status == 'warning') {
-                    //     toastr.warning(data.message)
-                    // }
                 },
-                error: function(data) {
-                    toastr.error('Vui lòng đăng nhập!');
+                error: function(xhr, status, error) {
+                    if (xhr.responseJSON.message === 'Unauthenticated.') {
+                        $new_message = 'Vui lòng đăng nhập!'
+                        xhr.responseJSON.message = $new_message;
+                        toastr.error(xhr.responseJSON.message);
+                    }
+                    // toastr.error('Vui lòng đăng nhập!');
                 }
             })
         })
@@ -751,5 +753,40 @@
                 }
             })
         });
+    })
+</script>
+
+{{-- send-message --}}
+<script>
+    $(document).ready(function() {
+        $('.message_form_product_detail').on('submit', function(e) {
+            e.preventDefault();
+
+            let form_data = $(this).serialize();
+            $.ajax({
+                method: 'POST',
+                url: "{{ route('user.send-message') }}",
+                data: form_data,
+                success: function(data) {
+                    if (data.status == 'success') {
+                        $('.message_content').val('');
+                        toastr.success(data.message);
+
+                        // redirect message dashboard after send message successfully
+                        window.location.href = "{{ route('user.message.index') }}";
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // console.log(error);
+                    if (xhr.responseJSON.message === 'Unauthenticated.') {
+                        $new_message = 'Vui lòng đăng nhập!'
+                        xhr.responseJSON.message = $new_message;
+                        toastr.error(xhr.responseJSON.message);
+                    } else {
+                        toastr.error(xhr.responseJSON.message);
+                    }
+                },
+            })
+        })
     })
 </script>

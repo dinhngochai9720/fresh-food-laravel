@@ -54,7 +54,7 @@
                                     $products_of_category[] = \App\Models\Product::where('category_id', $category->id)
                                         ->where(['is_approved' => 1, 'status' => 1])
                                         ->orderBy('id', 'DESC')
-                                        ->take(12)
+                                        ->take(6)
                                         ->get();
                                 } elseif (array_keys($last_key)[0] == 'sub_category') {
                                     //$last_key['sub_category'] is id of sub category
@@ -64,7 +64,7 @@
                                     $products_of_category[] = \App\Models\Product::where('sub_category_id', $category->id)
                                         ->where(['is_approved' => 1, 'status' => 1])
                                         ->orderBy('id', 'DESC')
-                                        ->take(12)
+                                        ->take(6)
                                         ->get();
                                 } else {
                                     //$last_key['child_category'] is id of child category
@@ -74,7 +74,7 @@
                                     $products_of_category[] = \App\Models\Product::where('child_category_id', $category->id)
                                         ->where(['is_approved' => 1, 'status' => 1])
                                         ->orderBy('id', 'DESC')
-                                        ->take(12)
+                                        ->take(6)
                                         ->get();
                                 }
                             @endphp

@@ -57,17 +57,17 @@
                                     </button>
                                 @endif
 
-                                <button class="nav-link common_btn" id="v-pills-cash-tab" data-bs-toggle="pill"
-                                    data-bs-target="#v-pills-cash" type="button" role="tab"
-                                    aria-controls="v-pills-cash" aria-selected="false">Tiền mặt
-                                </button>
-
                                 @if ($vnpay_setting->status == 1)
                                     <button class="nav-link common_btn" id="v-pills-vnpay-tab" data-bs-toggle="pill"
                                         data-bs-target="#v-pills-vnpay" type="button" role="tab"
                                         aria-controls="v-pills-vnpay" aria-selected="false">VNPay
                                     </button>
                                 @endif
+
+                                <button class="nav-link common_btn" id="v-pills-cash-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-cash" type="button" role="tab"
+                                    aria-controls="v-pills-cash" aria-selected="false">Tiền mặt
+                                </button>
 
                                 <button class="nav-link common_btn" id="v-pills-zalopay-tab" data-bs-toggle="pill"
                                     data-bs-target="#v-pills-zalopay" type="button" role="tab"

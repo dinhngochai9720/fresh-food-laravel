@@ -17,10 +17,6 @@ class WishlistController extends Controller
 
     public function addProductToWishlist(Request $request)
     {
-        if (!Auth::check()) {
-            // return response(['status' => 'warning', 'message' => 'Vui lòng đăng nhập!']);
-        }
-
         $check_product_wishlist = Wishlist::where(['product_id' => $request->id, 'user_id' => Auth::user()->id]);
         if ($check_product_wishlist->count() > 0) {
             return response(['status' => 'error', 'message' => 'Sản phẩm đã tồn tại!']);

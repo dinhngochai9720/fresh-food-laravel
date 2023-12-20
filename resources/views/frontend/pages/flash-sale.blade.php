@@ -102,12 +102,13 @@
                                     <ul class="wsus__single_pro_icon">
                                         <li><a class="d-flex justify-content-center align-items-center" href="#"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $product->id }}"><i
-                                                    class="far fa-eye"></i></a></li>
+                                                    class="far fa-eye"></i></a>
+                                        </li>
+
                                         <li><a class="d-flex justify-content-center align-items-center add-product-to-wishlist"
                                                 href="" data-id="{{ $product->id }}"><i
-                                                    class="far fa-heart"></i></a></li>
-                                        {{-- <li><a class="d-flex justify-content-center align-items-center" href="#"><i
-                                                    class="far fa-random"></i></a> --}}
+                                                    class="fal fa-heart"></i></a>
+                                        </li>
                                     </ul>
 
                                     <div class="wsus__product_details">

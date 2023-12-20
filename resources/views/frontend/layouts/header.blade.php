@@ -34,6 +34,7 @@
                         </div>
                     </div>
                     <ul class="wsus__icon_area">
+
                         <li><a href="{{ route('user.wishlist') }}"><i class="fal fa-heart"></i><span
                                     class="total-product-wishlist">
                                     @if (Auth::check())
@@ -41,8 +42,9 @@
                                     @else
                                         0
                                     @endif
-                                </span></a></li>
-                        {{-- <li><a href="compare.html"><i class="fal fa-random"></i><span>03</span></a></li> --}}
+                                </span></a>
+                        </li>
+
                         <li><a class="wsus__cart_icon" href="#"><i class="fal fa-shopping-bag"></i><span
                                     class="total-product-mini-cart">{{ Cart::content()->count() }}</span></a>
                         </li>

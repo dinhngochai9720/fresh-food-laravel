@@ -154,59 +154,17 @@
                                         </li>
                                 </form>
 
-                                {{-- buy-now-product --}}
-                                <form class="buy-product-now">
-                                    <input type="hidden" name="product_id" value="{{ $product->id }}" />
-
-                                    @foreach ($product->variants as $variant)
-                                        @if ($variant->status !== 1)
-                                        @else
-                                            <select class="form-control d-none" name="variant_items[]">
-                                                @foreach ($variant->variantItems as $variant_item)
-                                                    @if ($variant_item->status !== 1)
-                                                    @else
-                                                        <option value="{{ $variant_item->id }}"
-                                                            @if ($variant_item->is_default == 1) selected @endif>
-                                                        </option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
-                                        @endif
-                                    @endforeach
-
-                                    <input name="quantity" type="hidden" min="1" value="1" />
-                                    {{-- <li><button class="buy_now border-0" type="submit">Mua ngay</button></li> --}}
-                                </form>
-
                                 <li><a class="d-flex justify-content-center align-items-center add-product-to-wishlist"
                                         href="" data-id="{{ $product->id }}"><i class="fal fa-heart"></i></a>
                                 </li>
-                                {{-- <li><a class="d-flex justify-content-center align-items-center" href="#"><i
-                                            class="far fa-random"></i></a></li> --}}
+
                                 </ul>
 
                                 <p class="brand_model"><span>SKU:</span> {{ $product->sku }}</p>
                                 <p class="brand_model"><span>Thương hiệu:</span> {{ $product->brand->name }}
                                 </p>
 
-                                {{-- Learn about sharing products on social networks later --}}
-                                {{-- <div class="wsus__pro_det_share">
-                                       <h5 class="me-2">share:</h5>
-                                       <ul class="d-flex">
-                                           <li><a class="facebook" href="#"><i
-                                                       class="fab fa-facebook-f"></i></a>
-                                           </li>
-                                           <li><a class="twitter" href="#"><i
-                                                       class="fab fa-twitter"></i></a>
-                                           </li>
-                                           <li><a class="whatsapp" href="#"><i
-                                                       class="fab fa-whatsapp"></i></a>
-                                           </li>
-                                           <li><a class="instagram" href="#"><i
-                                                       class="fab fa-instagram"></i></a>
-                                           </li>
-                                       </ul>
-                                   </div> --}}
+
                             </div>
                         </div>
                     </div>

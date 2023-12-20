@@ -27,11 +27,16 @@
             </li>
         @endif
 
+        <li>
+            <a class="{{ setActive(['user.message.*']) }}" href="{{ route('user.message.index') }}"> <i
+                    class="fa-solid fa-message"></i></i>Chat</a>
+        </li>
 
         <li>
             <a class="{{ setActive(['user.profile']) }}" href="{{ route('user.profile') }}"><i
                     class="far fa-user"></i>Hồ sơ</a>
         </li>
+
         <li>
             <a class="{{ setActive(['user.address.*']) }}" href="{{ route('user.address.index') }}"><i
                     class="fa-solid fa-location-dot"></i> Địa chỉ</a>

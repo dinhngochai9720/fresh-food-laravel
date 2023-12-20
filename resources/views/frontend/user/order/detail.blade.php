@@ -107,7 +107,10 @@
                                                     </td>
 
                                                     <td class="name">
-                                                        <p>{{ $product->product_name }}</p>
+                                                        <p>
+                                                            {{ $product->product_name }}
+                                                        </p>
+
                                                         @foreach ($variants as $key => $variant)
                                                             <span>{{ $key }}:
                                                                 {{ $variant->name }}</span><br>

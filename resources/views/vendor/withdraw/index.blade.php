@@ -16,17 +16,21 @@
                         <h3> Yêu cầu rút tiền</h3>
 
                         <div class="d-flex align-items-center justify-content-between mb-2">
-                            <h6>Số dư hiện tại:
-                                {{ number_format($current_balance, 0, '.', '.') }}{{ $settings->currency_icon }} </h6>
-                            <h6>Số tiền rút chờ xử lý:
-                                {{ number_format($withdraw_pending_total_amount, 0, '.', '.') }}{{ $settings->currency_icon }}
-                            </h6>
-                            <h6>Số tiền đã rút:
-                                {{ number_format($withdraw_paid_total_amount, 0, '.', '.') }}{{ $settings->currency_icon }}
-                            </h6>
+                            <div>
+                                <h6>Số dư hiện tại:
+                                    {{ number_format($current_balance, 0, '.', '.') }}{{ $settings->currency_icon }} </h6>
+                                <h6>Số tiền rút chờ xử lý:
+                                    {{ number_format($withdraw_pending_total_amount, 0, '.', '.') }}{{ $settings->currency_icon }}
+                                </h6>
+                                <h6>Số tiền đã rút:
+                                    {{ number_format($withdraw_paid_total_amount, 0, '.', '.') }}{{ $settings->currency_icon }}
+                                </h6>
+                            </div>
                             <a href="{{ route('vendor.withdraw.create') }}" class="btn btn-primary"><i
                                     class="fa-solid fa-plus"></i> Tạo yêu cầu</a>
                         </div>
+
+
 
 
                         <div class="wsus__dashboard_profile">

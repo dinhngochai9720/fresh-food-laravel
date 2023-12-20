@@ -42,7 +42,7 @@ class CategoryController extends Controller
             'name' => ['required', 'max:255', 'unique:categories,name'],
             'status' => ['required'],
         ], [
-            'image.required' => 'Vui lòng chọn ảnh',
+            'image.required' => 'Vui lòng chọn ảnh.',
             'image.image' => 'Vui lòng chọn lại đúng định dạng file ảnh',
             'name.required' => 'Vui lòng nhập tên.',
             'name.max' => 'Nhập tối đa 255 ký tự.',

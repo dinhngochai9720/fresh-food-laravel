@@ -17,6 +17,7 @@ use App\Http\Controllers\Frontend\User\PayPalController;
 use App\Http\Controllers\Frontend\User\ReviewController;
 use App\Http\Controllers\Frontend\User\StripeController;
 use App\Http\Controllers\Frontend\User\DashboardController;
+use App\Http\Controllers\Frontend\User\MessageController;
 use App\Http\Controllers\Frontend\User\ProfileController;
 use App\Http\Controllers\Frontend\User\VendorRequestController;
 use App\Http\Controllers\Frontend\User\VNPayController;
@@ -51,7 +52,6 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('products/view', 'viewProducts')->name('products.view');
 });
 
-
 // Google Login User Routes
 Route::controller(GoogleLoginController::class)->group(function () {
     Route::get('google/login', 'googleLogin')->name('google.login');
@@ -63,6 +63,13 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 
     // User Dashboard
     Route::controller(DashboardController::class)->group(function () {
         Route::get('dashboard', 'index')->name('dashboard');
+    });
+
+    // Message
+    Route::controller(MessageController::class)->group(function () {
+        Route::get('message/index', 'index')->name('message.index');
+        Route::get('get-message', 'getMessage')->name('get-message');
+        Route::post('send-message', 'sendMessage')->name('send-message');
     });
 
     // User Profile

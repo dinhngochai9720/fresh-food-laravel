@@ -17,14 +17,15 @@ class ProductController extends Controller
 {
     public function showProductDetail(string $slug, $id)
     {
-
         $orders = Order::where('payment_status', 1)->where('status', 'delivered')->get();
 
         $reviews = ProductReview::where('product_id', $id)->where('status', 1)->orderBy('id', 'DESC')->paginate(5);
 
         $product = Product::with(['vendor', 'category', 'images', 'variants', 'brand'])->where('id', $id)->first();
 
-        return view('frontend.pages.product-detail', compact('product', 'reviews', 'orders'));
+        $related_products = Product::where('category_id', $product->category_id)->where('id', '!=', $product->id)->orderBy('id', 'DESC')->limit(6)->get();
+
+        return view('frontend.pages.product-detail', compact('product', 'reviews', 'orders', 'related_products'));
     }
 
     public function viewProducts(Request $request)
