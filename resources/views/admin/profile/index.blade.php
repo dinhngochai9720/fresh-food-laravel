@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    Tài khoản
+    Hồ sơ
 @endsection
 
 @section('content')
@@ -47,7 +47,7 @@
                                     <div class="form-group col-md-12 col-12">
                                         <label>Email</label>
                                         <input type="email" name="email" class="form-control"
-                                            value="{{ Auth::user()->email }}" placeholder="Nhập email">
+                                            value="{{ Auth::user()->email }}" placeholder="Nhập email" readonly>
                                         @if ($errors->has('email'))
                                             <code>{{ $errors->first('email') }}</code>
                                         @endif

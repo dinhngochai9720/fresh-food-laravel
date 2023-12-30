@@ -19,7 +19,7 @@
         </li>
 
         <li><a class="{{ setActive(['vendor.shop-profile.*']) }}" href="{{ route('vendor.shop-profile.index') }}"><i
-                    class="fa-solid fa-shop"></i> Cửa hàng</a></li>
+                    class="fa-solid fa-shop"></i>Hồ sơ cửa hàng</a></li>
 
         <li><a class="{{ setActive([
             'vendor.product.*',

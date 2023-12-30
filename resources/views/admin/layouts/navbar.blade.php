@@ -15,7 +15,7 @@
             <div class="dropdown-menu dropdown-menu-right">
                 {{-- <div class="dropdown-title">Logged in 5 min ago</div> --}}
                 <a href="{{ route('admin.profile') }}" class="dropdown-item has-icon">
-                    <i class="far fa-user"></i> Tài khoản
+                    <i class="far fa-user"></i> Hồ sơ
                 </a>
                 {{-- <a href="features-activities.html" class="dropdown-item has-icon">
             <i class="fas fa-bolt"></i> Activities
