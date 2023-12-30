@@ -30,9 +30,9 @@
                     <li class="{{ setActive(['admin.flash-sale.*']) }}"><a class="nav-link"
                             href="{{ route('admin.flash-sale.index') }}">Flash Sale</a>
                     </li>
-                    <li class="{{ setActive(['admin.advertisement.*']) }}"><a class="nav-link"
+                    {{-- <li class="{{ setActive(['admin.advertisement.*']) }}"><a class="nav-link"
                             href="{{ route('admin.advertisement.index') }}">Banner</a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
 
@@ -143,10 +143,10 @@
                             href="{{ route('admin.transaction.index') }}">Tất cả giao dịch</a></li>
                     <li class="{{ setActive(['admin.transaction-paypal.*']) }}"><a class="nav-link"
                             href="{{ route('admin.transaction-paypal.index') }}">Giao dịch PayPal</a></li>
-                    <li class="{{ setActive(['admin.transaction-vnpay.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.transaction-vnpay.index') }}">Giao dịch VNPay</a></li>
                     <li class="{{ setActive(['admin.transaction-stripe.*']) }}"><a class="nav-link"
                             href="{{ route('admin.transaction-stripe.index') }}">Giao dịch Stripe</a></li>
+                    <li class="{{ setActive(['admin.transaction-vnpay.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.transaction-vnpay.index') }}">Giao dịch VNPay</a></li>
                     <li class="{{ setActive(['admin.transaction-cash.*']) }}"><a class="nav-link"
                             href="{{ route('admin.transaction-cash.index') }}">Giao dịch Tiền mặt</a></li>
                 </ul>
@@ -205,14 +205,11 @@
                 </ul>
             </li>
 
-            <li class="{{ setActive(['admin.subscriber.*']) }}">
+            {{-- <li class="{{ setActive(['admin.subscriber.*']) }}">
                 <a class="nav-link" href="{{ route('admin.subscriber.index') }}">
                     <i class="fas fa-envelope"></i>
                     <span>Quản lý email đăng ký</span></a>
-            </li>
-
-
-
+            </li> --}}
 
             <li class="menu-header">Cài đặt</li>
             <li class="{{ setActive(['admin.home-page-setting.*']) }}">
@@ -221,7 +218,7 @@
                     <span>Giao diện trang chủ</span></a>
             </li>
 
-            <li class="dropdown {{ setActive(['admin.footer-customer.*', 'admin.footer-company.*']) }}">
+            {{-- <li class="dropdown {{ setActive(['admin.footer-customer.*', 'admin.footer-company.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
                     <i class="fas fa-tv"></i>
                     <span>Footer website</span>
@@ -232,7 +229,7 @@
                     <li class="{{ setActive(['admin.footer-company.*']) }}"><a class="nav-link"
                             href="{{ route('admin.footer-company.index') }}">Về Fresh Food</a></li>
                 </ul>
-            </li>
+            </li> --}}
 
 
             <li class="{{ setActive(['admin.setting.*']) }}"><a class="nav-link "

@@ -20,7 +20,7 @@
                                      <div class="list-group" id="list-tab" role="tablist">
                                          <a class="list-group-item list-group-item-action active" id="gerenal-settings"
                                              data-toggle="list" href="#gerenal-setting" role="tab">Cài đặt chung</a>
-                                         <a class="list-group-item list-group-item-action" id="paypal-settings"
+                                         {{-- <a class="list-group-item list-group-item-action" id="paypal-settings"
                                              data-toggle="list" href="#paypal-setting" role="tab">PayPal</a>
                                          <a class="list-group-item list-group-item-action" id="stripe-settings"
                                              data-toggle="list" href="#stripe-setting" role="tab">Stripe</a>
@@ -29,7 +29,7 @@
                                          <a class="list-group-item list-group-item-action" id="email-configs"
                                              data-toggle="list" href="#email-config" role="tab">Mailtrap</a>
                                          <a class="list-group-item list-group-item-action" id="pusher-settings"
-                                             data-toggle="list" href="#pusher-setting" role="tab">Pusher</a>
+                                             data-toggle="list" href="#pusher-setting" role="tab">Pusher</a> --}}
                                      </div>
                                  </div>
                                  <div class="col-10">

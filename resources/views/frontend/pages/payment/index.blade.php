@@ -69,7 +69,7 @@
                                     aria-controls="v-pills-cash" aria-selected="false">Tiền mặt
                                 </button>
 
-                                <button class="nav-link common_btn" id="v-pills-zalopay-tab" data-bs-toggle="pill"
+                                {{-- <button class="nav-link common_btn" id="v-pills-zalopay-tab" data-bs-toggle="pill"
                                     data-bs-target="#v-pills-zalopay" type="button" role="tab"
                                     aria-controls="v-pills-zalopay" aria-selected="false">ZaloPay
                                 </button>
@@ -77,7 +77,7 @@
                                 <button class="nav-link common_btn" id="v-pills-momo-tab" data-bs-toggle="pill"
                                     data-bs-target="#v-pills-momo" type="button" role="tab"
                                     aria-controls="v-pills-momo" aria-selected="false">MoMo
-                                </button>
+                                </button> --}}
                             </div>
                         </div>
                     </div>
