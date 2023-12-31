@@ -54,17 +54,6 @@ class HomeController extends Controller
             ->limit(4)
             ->get();
 
-        // $top_products = Product::select('products.id', 'products.name', 'products.slug', 'products.category_id', 'products.thumbnail_image', 'products.quantity', 'products.price', 'products.offer_price', DB::raw('SUM(order_details.product_qty) as total_sold'))
-        //     ->join('order_details', 'products.id', '=', 'order_details.product_id')
-        //     ->join('orders', 'order_details.order_id', '=', 'orders.id')
-        //     ->where('orders.status', 'delivered')
-        //     ->where('orders.payment_status',  1)
-        //     ->groupBy('products.id') // Sử dụng tên bảng để nhóm theo id
-        //     ->orderByDesc('total_sold')
-        //     ->limit(4)
-        //     ->get();
-
-
         $category_slider_one = HomePageSetting::where('key', 'category_slider_one',)->first();
         $category_slider_two = HomePageSetting::where('key', 'category_slider_two',)->first();
         $category_slider_three = HomePageSetting::where('key', 'category_slider_three',)->first();
