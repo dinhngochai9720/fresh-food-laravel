@@ -102,12 +102,13 @@
                                         {{ number_format(getFinalTotalCartPrice(), 0, '.', '.') }}{{ $settings->currency_icon }}</b></span>
                             </p>
                         </div>
+
                         <div class="terms_area">
                             <div class="form-check">
                                 <input class="form-check-input agree-term-and-condition" type="checkbox" value=""
                                     id="flexCheckChecked3" checked>
                                 <label class="form-check-label" for="flexCheckChecked3">
-                                    Tôi đã đọc và đồng ý <a href="#">các điều khoản và điều kiện *</a>
+                                    Tôi đã đọc và đồng ý <a href="javascript:;">các điều khoản và điều kiện *</a>
                                 </label>
                             </div>
                         </div>
